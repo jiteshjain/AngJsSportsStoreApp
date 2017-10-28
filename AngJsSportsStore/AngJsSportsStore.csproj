@@ -60,7 +60,9 @@
     <Content Include="app.Html" />
     <Content Include="CSS\bootstrap-theme.css" />
     <Content Include="CSS\bootstrap.css" />
+    <Content Include="Scripts\angModule.js" />
     <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\filters\customFilters.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
