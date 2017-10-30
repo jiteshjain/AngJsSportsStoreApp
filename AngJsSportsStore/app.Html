@@ -14,10 +14,11 @@
     </div>
     <div class="panel panel-default row" ng-controller="productListCtrl">
         <div class="col-xs-3">
-             <a class="btn btn-block btn-default btn-lg" ng-click="selectCategory()">
+             <a class="btn btn-block btn-default btn-lg" ng-click="selectCategory()" >
                 Home
             </a>
-            <a class="btn btn-block btn-default btn-lg" ng-repeat="item in data.products | orderBy:'category' | unique:'category'" ng-click="selectCategory(item)">
+            <a class="btn btn-block btn-default btn-lg" ng-repeat="item in data.products | orderBy:'category' | unique:'category'" ng-click="selectCategory(item)"
+                ng-class="getCategoryClass(item)">
                 {{item}}
             </a>    
         </div>

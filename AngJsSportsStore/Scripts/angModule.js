@@ -8,14 +8,21 @@
         ]
     };
 });
-angular.module("sportsStore").controller("productListCtrl", function ($scope,$filter)
+angular.module("sportsStore")
+.constant("productListActiveClass","btn-primary")
+.controller("productListCtrl", function ($scope, $filter,productListActiveClass)
 {
-    var selectCategory = null;
+    var selectedCategory = null;
     $scope.selectCategory = function (newCategory) {
-        selectCategory = newCategory;
+        selectedCategory = newCategory;
     }
 
     $scope.categoryFilterFn = function (product) {
-        return selectCategory == null || selectCategory == product.category;
+        return selectedCategory == null || selectedCategory == product.category;
+    }
+
+    $scope.getCategoryClass=function (category)
+    {
+        return selectedCategory==category ?productListActiveClass : "";
     }
 });
