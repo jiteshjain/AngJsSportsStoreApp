@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>                 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
     <script src="Scripts/angular.js"></script>
+     
     <script src="Scripts/angModule.js"></script>
-    <script src="Scripts/filters/customFilters.js"></script>
+   <script src="Scripts/filters/customFilters.js"></script>
     <link href="CSS/bootstrap.css" rel="stylesheet" />
     <link href="CSS/bootstrap-theme.css" rel="stylesheet" />
 </head>
@@ -23,7 +24,7 @@
             </a>    
         </div>
         <div class="col-xs-8">
-            <div class="well" ng-repeat="item in data.products | filter :categoryFilterFn">
+            <div class="well" ng-repeat="item in data.products | filter :categoryFilterFn | range:selectedPage:pageSize">
                 <h3>
                     <strong >{{item.name}}</strong>
                     <span class="label label-primary pull-right">
@@ -32,7 +33,16 @@
                 </h3>
                 <span class="lead">{{item.description}}</span>
             </div>
-        </div>
+       
+        </div> 
+          <div class="pull-right btn-group" style="border:solid 2px red;" >
+              
+                <a ng-repeat="page in data.products | filter :categoryFilterFn | pageCount:pageSize" ng-click="selectPage(selectedPage+1)"
+                    class="btn btn-default" ng-class="getPageClass($index+1)">
+{{$index+1}}
+                </a>
+            </div>
     </div>
+      
 </body>
 </html>
