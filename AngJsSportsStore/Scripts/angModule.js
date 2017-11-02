@@ -29,9 +29,8 @@ angular.module("sportsStore")
     {
         return selectedCategory==category ?productListActiveClass : "";
     }
-    $scope.selectPage = function (newPage) {
-        alert("new Page "+newPage);
-        $scope.selectedPage == newPage;
+    $scope.selectPage = function (newPage) { 
+        $scope.selectedPage = newPage;
     }
     $scope.getSelectedPageClass = function (page) {
         return $scope.selectedPage == page ? productListActiveClass : "";
